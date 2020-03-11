@@ -1,10 +1,10 @@
 #ifndef STACK_LINKED_H_INCLUDED
 #define STACK_LINKED_H_INCLUDED
 
-typedef int StackEntery ;
+typedef int StackEntry ;
 
 typedef struct stacknode{
-        StackEntery entery ;
+        StackEntry entry ;
         struct stacknode *next ;
 }StackNode;
 
@@ -15,14 +15,14 @@ typedef struct stack {
 
 
 void CreateStack (Stack *ps);
-int Push (StackEntery e , Stack *Ps);
+int Push (StackEntry e , Stack *Ps);
 int StackFull (Stack *ps);
-void Pop (StackEntery *pe , Stack *ps);
-int StackEmpety (Stack *ps);
-void StackTop (StackEntery *pe ,Stack *ps);
+void Pop (StackEntry *pe , Stack *ps);
+int StackEmpty (Stack *ps);
+void StackTop (StackEntry *pe ,Stack *ps);
 int StackSize (Stack *ps);
 void ClearStack (Stack *ps);
-void TraverseStack (Stack *ps , void(*pf)(StackEnery));
+void TraverseStack (Stack *ps , void(*pf)(StackEnry));
 
 
 
