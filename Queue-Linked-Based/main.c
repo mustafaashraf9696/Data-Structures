@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <conio.h>
 
-typedef int QueueEntery;
+typedef int QueueEntry;
 
 typedef struct queuenode {
-	QueueEntery entery;
+	QueueEntry entry;
 	struct queuenode* Next;
 }QueueNode;
 
@@ -21,10 +21,10 @@ void CreateQueue(Queue* pq) {
 	pq->Size = 0;
 }
 
-void Append(QueueEntery e, Queue* pq) {
+void Append(QueueEntry e, Queue* pq) {
 	QueueNode* pn = (QueueNode*)malloc(sizeof(QueueNode));
 	pn->Next = NULL;
-	pn->entery = e;
+	pn->entry = e;
 	if (!pq->rear)
 		pq->front = pn;
 	else
@@ -33,9 +33,9 @@ void Append(QueueEntery e, Queue* pq) {
 	pq->Size++;
 }
 
-void Serve(QueueEntery* pe, Queue* pq) {
+void Serve(QueueEntry* pe, Queue* pq) {
 	QueueNode* pn = pq->front;
-	*pe = pn->entery;
+	*pe = pn->entry;
 	pq->front = pq->front->Next;
 	free(pn);
 	if (!pq->front)
@@ -43,7 +43,7 @@ void Serve(QueueEntery* pe, Queue* pq) {
 	pq->Size--;
 }
 
-int QueueEmpety(Queue* pq) {
+int QueueEmpty(Queue* pq) {
 	return (!pq->Size);
 }
 
@@ -66,11 +66,11 @@ void ClearQueue(Queue* pq) {
 }
 
 int RearQueue(Queue* pq) {
-	return pq->rear->entery;
+	return pq->rear->entry;
 }
 
 int FrontQueue(Queue* pq) {
-	return pq->front->entery;
+	return pq->front->entry;
 }
 
 int main() {
