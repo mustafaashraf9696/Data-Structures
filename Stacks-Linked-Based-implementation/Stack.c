@@ -10,9 +10,9 @@ void CreateStack (Stack *ps){
 }
 
 
-int Push (StackEntery e , Stack *ps){
-    StackNode *pn = (StackNode*)malloc(sizeof(StackEntery));
-    pn -> entery = e ;
+int Push (StackEntry e , Stack *ps){
+    StackNode *pn = (StackNode*)malloc(sizeof(StackEntry));
+    pn -> entry = e ;
     pn -> next = ps -> top ;
     ps -> top = pn ;
     ps -> Size ++ ;
@@ -23,8 +23,8 @@ int StackFull (Stack *ps){
     return 0 ;
 }
 
-void Pop (StackEntery *pe , Stack *ps){
-    *pe = ps -> top -> entery ;
+void Pop (StackEntry *pe , Stack *ps){
+    *pe = ps -> top -> entry ;
     StackNode *pn ;
     pn = ps -> top ;
     ps -> top = ps -> top -> next ;
@@ -32,12 +32,12 @@ void Pop (StackEntery *pe , Stack *ps){
     ps -> Size --;
 }
 
-int StackEmpety (Stack *ps){
+int StackEmpty (Stack *ps){
 return !ps -> top ;
 }
 
-void StackTop (StackEntery *pe ,Stack *ps){
-    *pe = ps -> top -> entery;
+void StackTop (StackEntry *pe ,Stack *ps){
+    *pe = ps -> top -> entry;
 }
 
 
@@ -56,10 +56,10 @@ void ClearStack (Stack *ps){
     ps -> Size = 0;
 }
 
-void TraverseStack (Stack *ps , void(*pf)(StackEnery)){
+void TraverseStack (Stack *ps , void(*pf)(StackEntry)){
     StackNode *pn = ps -> top ;
     while (pn){
-        (*pf)(pn -> entery);
+        (*pf)(pn -> entry);
         pn = pn -> next ;
     }
 }
