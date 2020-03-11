@@ -53,7 +53,7 @@ void ClearStack (Stack *ps){
 ps ->top = 0 ;
 }
 
-void TraverseStack (Stack *ps , void(*pf)(StackEnry)){
+void TraverseStack (Stack *ps , void(*pf)(StackEntry)){
 for (int i = ps->top ; i >= 0 ; i--){
     (*pf)(ps->entry[i-1]);
     }
