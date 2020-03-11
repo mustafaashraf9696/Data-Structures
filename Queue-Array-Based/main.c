@@ -3,14 +3,14 @@
 #include<conio.h>
 
 #define MAXQUEUE 100 
-typedef int QueueEntery;
+typedef int QueueEntry;
 
 
 typedef struct queue {
     int front;
     int rear;
     int Size;
-    QueueEntery entery[MAXQUEUE];
+    QueueEntry entry[MAXQUEUE];
 }Queue;
 
 
@@ -20,19 +20,19 @@ void CreatQueue(Queue* pq) {
     pq->Size = 0;
 }
 
-void Append(QueueEntery e, Queue* pq) {
+void Append(QueueEntry e, Queue* pq) {
     pq->rear = (pq->rear + 1) % MAXQUEUE;
-    pq->entery[pq->rear] = e;
+    pq->entry[pq->rear] = e;
     pq->Size++;
 }
 
-void Serve(QueueEntery* pe, Queue* pq) {
-    pe = pq->entery[pq->front];
+void Serve(QueueEntry* pe, Queue* pq) {
+    pe = pq->entry[pq->front];
     pq->front = (pq->front + 1) % MAXQUEUE;
     pq->Size--;
 }
 
-int QueueEmpety(Queue* pq) {
+int QueueEmpty(Queue* pq) {
     return !(pq->Size);
 }
 
