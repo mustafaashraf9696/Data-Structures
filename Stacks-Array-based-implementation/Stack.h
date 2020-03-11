@@ -17,7 +17,7 @@ void CreateStack (Stack *ps);
 int Push (StackEntry e , Stack *Ps);
 int StackFull (Stack *ps);
 void Pop (StackEntry *pe , Stack *ps);
-int StackEmpety (Stack *ps);
+int StackEmpty (Stack *ps);
 void StackTop (StackEntry *pe ,Stack *ps);
 int StackSize (Stack *ps);
 void ClearStack (Stack *ps);
