@@ -11,11 +11,11 @@ ps -> top = 0 ;
 }
 // Initialize Stack
 
-int Push (StackEntery e , Stack *ps){
+int Push (StackEntry e , Stack *ps){
 if (ps -> top == MAXSTACK)
     return 0 ;
 else{
-    ps -> entery [ps -> top++] = e ;
+    ps -> entry [ps -> top++] = e ;
     return 1 ;
     }
 }
@@ -27,11 +27,11 @@ else
     return 0 ;
 }
 
-void Pop (StackEntery *pe , Stack *ps){
+void Pop (StackEntry *pe , Stack *ps){
 if (ps -> top == 0)
     return 0 ;
 else {
-    pe = ps -> entery[--ps->top];
+    pe = ps -> entry[--ps->top];
     return 1 ;
     }
 }
@@ -40,8 +40,8 @@ int StackEmpety (Stack *ps){
 return (!(ps -> top));
 }
 
-void StackTop (StackEntery *pe ,Stack *ps){
-*pe = ps->entery[ps->top-1];
+void StackTop (StackEntry *pe ,Stack *ps){
+*pe = ps->entry[ps->top-1];
 }
 
 
@@ -53,8 +53,8 @@ void ClearStack (Stack *ps){
 ps ->top = 0 ;
 }
 
-void TraverseStack (Stack *ps , void(*pf)(StackEnery)){
+void TraverseStack (Stack *ps , void(*pf)(StackEnry)){
 for (int i = ps->top ; i >= 0 ; i--){
-    (*pf)(ps->entery[i-1]);
+    (*pf)(ps->entry[i-1]);
     }
 }
